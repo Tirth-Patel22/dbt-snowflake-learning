@@ -1,0 +1,1 @@
+SELECT PRODUCT_ID, PRODUCT_NAME, PRICE,{{price_category('PRICE',var('expensive_limit'),var('medium_limit'))}} AS PRICE_CATEGORY FROM {{ref('products')}}

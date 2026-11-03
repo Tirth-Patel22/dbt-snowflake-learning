@@ -1,0 +1,17 @@
+# dbt generated files
+target/
+dbt_packages/
+logs/
+
+# Python environment and cache
+.venv/
+__pycache__/
+*.pyc
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# dbt credentials
+profiles.yml

@@ -1,0 +1,1 @@
+SELECT PRODUCT_ID,PRODUCT_NAME,PRICE,{{price_category('PRICE',8000,4000)}} AS PRICE_CATEGORY FROM {{ref('products')}}

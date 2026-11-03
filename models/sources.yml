@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw operational data stored in Snowflake."
+
+    database: DBTPRACTICE
+    schema: RAW
+
+    tables:
+      - name: customers
+        description: "Raw customer records."
+
+        columns:
+          - name: customer_id
+            description: "Unique identifier assigned to each customer."
+
+          - name: customer_name
+            description: "Full name of the customer."
+
+          - name: email
+            description: "Email address of the customer."
+
+          - name: is_active
+            description: "Indicates whether the customer account is active."
+
+      - name: orders
+        description: "Raw order records."
+
+        columns:
+          - name: order_id
+            description: "Unique identifier assigned to each order."
+
+          - name: customer_id
+            description: "Identifier of the customer associated with the order."
+
+          - name: customer_name
+            description: "Customer name recorded on the order."
+
+          - name: amount
+            description: "Total monetary amount of the order."
+
+          - name: order_date
+            description: "Date on which the order was placed."

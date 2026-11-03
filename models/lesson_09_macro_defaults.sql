@@ -1,0 +1,6 @@
+SELECT
+    PRODUCT_ID,
+    PRODUCT_NAME,
+    PRICE,
+    {{ price_category('PRICE') }} AS PRICE_CATEGORY
+FROM {{ ref('products') }}

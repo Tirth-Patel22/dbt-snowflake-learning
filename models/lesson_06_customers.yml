@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: lesson_06_customers
+    description: "Contains customer information from the RAW customers source."
+
+    columns:
+      - name: customer_id
+        description: "Unique identifier assigned to each customer."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+        description: "Full name of the customer."
+
+      - name: email
+        description: "Email address of the customer."
+
+      - name: is_active
+        description: "Indicates whether the customer account is active."
+
+  - name: lesson_06_products
+    description: "Contains product information loaded from the products seed."
+
+    columns:
+      - name: product_id
+        description: "Unique identifier assigned to each product."
+
+      - name: product_name
+        description: "Name of the product."
+
+      - name: category
+        description: "Category assigned to the product."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Formal', 'Casual', 'Sneakers', 'Sport']
+
+      - name: price
+        description: "Selling price of the product."
+  
+  - name: lesson_06_orders
+    description: "Contains order information from the RAW orders source."
+
+    columns:
+      - name: order_id
+        description: "Unique identifier assigned to each order."
+
+      - name: customer_id
+        description: "Identifier of the customer who placed the order."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('lesson_06_customers')
+                field: customer_id
+
+      - name: customer_name
+        description: "Name of the customer recorded on the order."
+
+      - name: amount
+        description: "Total monetary amount of the order."
+
+      - name: order_date
+        description: "Date on which the order was placed."
